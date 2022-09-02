@@ -1,0 +1,12 @@
+.nav-item{
+    margin: 0 20px;
+}
+.nav-item img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+}
+hr{
+    width: 90%;
+    margin-left: 5%;
+}
