@@ -1,4 +1,3 @@
-
 const categoryLoad = async () => {
     url = `https://openapi.programming-hero.com/api/news/categories`
     try {
@@ -9,7 +8,6 @@ const categoryLoad = async () => {
         console.log(error)
     }
 }
-
 const displayCategory = (categories) => {
     categories.forEach((categories) => {
         categoryDisplay = document.getElementById('category-display')
@@ -29,11 +27,8 @@ const singleNewsItem = async (category_id) => {
     json = await res.json()
     categoryShow(json.data)
 }
-const categoryShow = (categoryItem) => {
-
-    
+const categoryShow = (categoryItem) => {   
     displayNewsItem = document.getElementById('display-news-item')
-    
     displayNewsItem.innerText = ''
     noData = document.getElementById('no-data')
     if (categoryItem.length === 0) {
@@ -41,9 +36,7 @@ const categoryShow = (categoryItem) => {
     }else{
         noData.classList.add('d-none') 
     }
-
     totalCategotyItem(categoryItem)
-
     categoryItem.sort(function (a,b) {
         if (a.total_view < b.total_view) {
             return 1
@@ -53,10 +46,7 @@ const categoryShow = (categoryItem) => {
             return 0
         }
     })
-
-    categoryItem.forEach((categoryItem) => {
-        
-        
+    categoryItem.forEach((categoryItem) => {  
         cardDiv = document.createElement('div')
         cardDiv.classList.add('col')
         cardDiv.innerHTML = `
@@ -81,18 +71,15 @@ const categoryShow = (categoryItem) => {
         `
         displayNewsItem.appendChild(cardDiv)
     })
-    
     spinnerLoad(false)
     
 }
-
 const totalCategotyItem = (categoryItem) => {
     itemsFound = document.getElementById('items-found')
     itemsFound.innerHTML = `
         <h3>${categoryItem.length} items found</h3>
     `
 }
-
 const showDetails = async (news_id) => {
     url = `https://openapi.programming-hero.com/api/news/${news_id}`
     try {
@@ -124,5 +111,9 @@ const spinnerLoad = (isLoading) => {
     }
 }
 
+singleNewsItem('04')
 categoryLoad()
+
+
+
 
