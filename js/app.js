@@ -19,6 +19,7 @@ const displayCategory = (categories) => {
 }
 
 const singleNewsItem = async (category_id) => {
+    spinnerLoad(true)
     url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
     res = await fetch(url)
     json = await res.json()
@@ -62,6 +63,7 @@ const categoryShow = (categoryItem) => {
         `
         displayNewsItem.appendChild(cardDiv)
     })
+    spinnerLoad(false)
 }
 
 const totalCategotyItem = (categoryItem) => {
@@ -70,7 +72,6 @@ const totalCategotyItem = (categoryItem) => {
         <h3>${categoryItem.length} items found</h3>
     `
 }
-
 
 const showDetails = async (news_id) => {
     url = `https://openapi.programming-hero.com/api/news/${news_id}`
@@ -89,6 +90,15 @@ const displayDetails = (modal) => {
         <p>Pblished Date : ${modal.author.published_date ? modal.author.published_date : 'no date found'}</p>
         <p>Total View : ${modal.total_view ? modal.total_view : 'no views found'}</p>
     `
+}
+
+const spinnerLoad = (isLoading) => {
+    spinnerItem = document.getElementById('spinner-item')
+    if (isLoading) {
+        spinnerItem.classList.remove('d-none')
+    } else {
+        spinnerItem.classList.add('d-none')
+    }
 }
 
 categoryLoad()
