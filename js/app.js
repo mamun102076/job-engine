@@ -25,14 +25,19 @@ const singleNewsItem = async (category_id) => {
     categoryShow(json.data)
 }
 const categoryShow = (categoryItem) => {
+    displayNewsItem = document.getElementById('display-news-item')
+    
+    displayNewsItem.innerText = ''
     noData = document.getElementById('no-data')
     if (categoryItem.length === 0) {
         noData.classList.remove('d-none')
     }else{
         noData.classList.add('d-none')
     }
+
+    totalCategotyItem(categoryItem)
+
     categoryItem.forEach((categoryItem) => {
-        displayNewsItem = document.getElementById('display-news-item')
         cardDiv = document.createElement('div')
         cardDiv.classList.add('col')
         cardDiv.innerHTML = `
@@ -59,6 +64,12 @@ const categoryShow = (categoryItem) => {
     })
 }
 
+const totalCategotyItem = (categoryItem) => {
+    itemsFound = document.getElementById('items-found')
+    itemsFound.innerHTML = `
+        <h3>${categoryItem.length} items found</h3>
+    `
+}
 
 
 const showDetails = async (news_id) => {
