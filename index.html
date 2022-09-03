@@ -38,23 +38,45 @@
 
     <main class="container">
 
-      <section>
-        <ul class="nav nav-pills mb-3" id="category-display" role="tablist">
+      <section class="my-4">
+        <ul class="nav nav-pills mb-4" id="category-display" role="tablist">
           
         </ul>
+
+        <div id="items-found">
+          
+        </div>
+
         <div class="tab-content">
           <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
             <div id="display-news-item" class="row row-cols-2 row-cols-md-3 g-4">
 
             </div>
           </div>
-
         </div>
       </section>
 
       <section>
         <div id="no-data" class="d-none my-4">
           <h3>no news found</h3>
+        </div>
+      </section>
+
+      <section>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="newsModal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="newsModal">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div id="modalBody" class="modal-body">
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
         </div>
       </section>
 
