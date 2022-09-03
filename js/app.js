@@ -54,7 +54,7 @@ const categoryShow = (categoryItem) => {
                 <img src="${categoryItem.image_url ? categoryItem.image_url : 'no image found'}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">'${categoryItem.title ? categoryItem.title : 'no title found'}'</h5>
-                    <p class="card-text">${categoryItem.details ? categoryItem.details.slice(0,100) : 'no details found'}</p>
+                    <p class="card-text" title="${categoryItem.details}">${categoryItem.details ? categoryItem.details : 'no details found'}</p>
                     <div class="d-flex justify-content-around align-items-center">
                         <div>
                             <img src="${categoryItem.author ? categoryItem.author.img : 'author image not found'}" style="height: 40px;width:40px;border-radius: 50px">

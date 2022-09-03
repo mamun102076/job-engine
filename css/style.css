@@ -10,3 +10,8 @@ hr{
     width: 90%;
     margin-left: 5%;
 }
+.card-text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
