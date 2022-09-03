@@ -30,6 +30,7 @@ const singleNewsItem = async (category_id) => {
     categoryShow(json.data)
 }
 const categoryShow = (categoryItem) => {
+
     
     displayNewsItem = document.getElementById('display-news-item')
     
@@ -38,13 +39,24 @@ const categoryShow = (categoryItem) => {
     if (categoryItem.length === 0) {
         noData.classList.remove('d-none')
     }else{
-        noData.classList.add('d-none')
-        
+        noData.classList.add('d-none') 
     }
 
     totalCategotyItem(categoryItem)
 
+    categoryItem.sort(function (a,b) {
+        if (a.total_view < b.total_view) {
+            return 1
+        } else if (a.total_view > b.total_view) {
+            return -1
+        }else {
+            return 0
+        }
+    })
+
     categoryItem.forEach((categoryItem) => {
+        
+        
         cardDiv = document.createElement('div')
         cardDiv.classList.add('col')
         cardDiv.innerHTML = `
@@ -92,7 +104,6 @@ const showDetails = async (news_id) => {
     }
 }
 const displayDetails = (modal) => {
-    console.log(modal)
     newsModal = document.getElementById('newsModal')
     newsModal.innerText = modal.title
     modalBody = document.getElementById('modalBody')
