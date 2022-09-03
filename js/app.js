@@ -101,7 +101,6 @@ const displayDetails = (modal) => {
         <p>Total View : ${modal.total_view ? modal.total_view : 'no views found'}</p>
     `
 }
-
 const spinnerLoad = (isLoading) => {
     spinnerItem = document.getElementById('spinner-item')
     if (isLoading) {
@@ -110,7 +109,6 @@ const spinnerLoad = (isLoading) => {
         spinnerItem.classList.add('d-none')
     }
 }
-
 singleNewsItem('04')
 categoryLoad()
 
