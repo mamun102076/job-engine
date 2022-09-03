@@ -1,9 +1,13 @@
 
 const categoryLoad = async () => {
     url = `https://openapi.programming-hero.com/api/news/categories`
-    res = await fetch(url)
-    json = await res.json()
-    displayCategory(json.data.news_category)
+    try {
+        res = await fetch(url)
+        json = await res.json()
+        displayCategory(json.data.news_category)
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 const displayCategory = (categories) => {
@@ -26,6 +30,7 @@ const singleNewsItem = async (category_id) => {
     categoryShow(json.data)
 }
 const categoryShow = (categoryItem) => {
+    
     displayNewsItem = document.getElementById('display-news-item')
     
     displayNewsItem.innerText = ''
@@ -34,6 +39,7 @@ const categoryShow = (categoryItem) => {
         noData.classList.remove('d-none')
     }else{
         noData.classList.add('d-none')
+        
     }
 
     totalCategotyItem(categoryItem)
@@ -63,7 +69,9 @@ const categoryShow = (categoryItem) => {
         `
         displayNewsItem.appendChild(cardDiv)
     })
+    
     spinnerLoad(false)
+    
 }
 
 const totalCategotyItem = (categoryItem) => {
@@ -75,9 +83,13 @@ const totalCategotyItem = (categoryItem) => {
 
 const showDetails = async (news_id) => {
     url = `https://openapi.programming-hero.com/api/news/${news_id}`
-    res = await fetch(url)
-    json = await res.json()
-    displayDetails(json.data[0])
+    try {
+        res = await fetch(url)
+        json = await res.json()
+        displayDetails(json.data[0])
+    } catch (error) {
+        console.log(error)
+    }
 }
 const displayDetails = (modal) => {
     console.log(modal)
@@ -102,3 +114,4 @@ const spinnerLoad = (isLoading) => {
 }
 
 categoryLoad()
+
